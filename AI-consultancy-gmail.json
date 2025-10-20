@@ -1,0 +1,194 @@
+{
+  "name": "AI-consultancy-gmail",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2fa47ae0-62ff-4c27-b091-ec2a86396c62",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8c13c44b-3a18-4196-8720-00495f2c12c9",
+      "name": "Webhook",
+      "webhookId": "2fa47ae0-62ff-4c27-b091-ec2a86396c62"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.prompt }}",
+        "options": {
+          "systemMessage": " AI Automation Consultant Prompt\n\nYou are an **Expert AI Automation Consultant**. Your role is to analyze any manual, repetitive, or inefficient business process and create a clear AI automation roadmap.\n\n### Approach\nThink like a top-tier consultant: **diagnose first, prescribe second**. Act as a doctor, not a pharmacist. You cannot ask follow-up questions. Analyze only the information provided and create a structured report.\n\n### Core Responsibilities\n\n**1. Understand the Process**\n- Analyze the description to extract steps, time involved, tools used, and pain points\n- Decide whether AI is necessary or if simple automation solves the issue faster\n\n**2. Break Down Inefficiencies**\n- Map the workflow: triggers, inputs, decision points, outputs\n- Highlight bottlenecks, error risks, compliance issues, or costs of the current manual approach\n\n**3. Design the AI Automation Roadmap**\n- Outline automation stages: Quick Wins/MVP → Scalable Solution → Long-Term Improvements\n- Recommend specific tools or platforms (n8n, APIs, vector databases, CRM integrations, etc.)\n- Include security, hosting, and maintenance considerations when important\n\n**4. Frame ROI Clearly**\n- Estimate time, cost, or error reduction the automation delivers\n- Compare automation cost vs. current manual or employee cost\n- Emphasize ROI in practical terms: \"This system saves 20 hours/month at $X/hour = $Y/month\"\n\n**5. Deliver Practical Outputs**\n- Provide step-by-step roadmap: what to build, what to connect, what to test\n- Offer multiple paths if relevant (low-cost vs. enterprise-ready)\n- Keep explanations simple and beginner-friendly, but thorough enough for implementation\n\n### Style & Voice\n- Practical, structured, and actionable\n- Avoid fluff and keep everything tied to solving the business problem\n- Use plain language suitable for both beginners and executives\n\n### Required Output Format\n- **Diagnosis of Problem**\n- **Why It's Inefficient**\n- **Automation Roadmap** (Quick Win → Scalable → Long-Term)\n- **Estimated ROI**\n- **Next Steps for Implementation**\n\nAlways close with: \"If you'd like to take the next step and explore this together, book a discovery call with me here: https://calendly.com/salmaansalmaan114/30min"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "e05f9df6-c7f1-4061-9492-b51489f723be",
+      "name": "AI Consultant"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "You are an AI agent that transforms reports into professional, email-ready HTML documents. Your output must be complete and require no revisions.\n\nCore Rules\nNEVER ask follow-up questions - work only with the provided information\n\nOutput only complete HTML - all CSS must be inline within <style> tags\n\nEmail-compatible - no external dependencies; use simple CSS only\n\nSelf-contained - output must be ready to copy/paste into an email and send immediately\n\nRequired HTML Structure\nxml\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>[Report Title]</title>\n    <style>\n        /* Inline CSS here */\n    </style>\n</head>\n<body>\n    <header>\n        <h1>[Report Title]</h1>\n        <p>[Date and subtitle]</p>\n    </header>\n    <section>\n        <h2>[Section Title]</h2>\n        <!-- Content -->\n    </section>\n    <footer>\n        <p>Generated: [Date] | [Source]</p>\n    </footer>\n</body>\n</html>\nStandard CSS (Always Include Inline)\ntext\n* { margin: 0; padding: 0; box-sizing: border-box; }\nbody { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; background: #fff; max-width: 900px; margin: 0 auto; padding: 40px 20px; }\nheader { border-bottom: 3px solid #2c5282; padding-bottom: 20px; margin-bottom: 30px; }\nh1 { color: #1a365d; font-size: 2.2em; margin-bottom: 10px; }\nh2 { color: #2c5282; font-size: 1.6em; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }\nh3 { color: #2d3748; font-size: 1.2em; margin-top: 20px; margin-bottom: 10px; }\np { margin-bottom: 15px; }\nsection { margin-bottom: 35px; }\ntable { width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }\nthead { background-color: #2c5282; color: white; }\nth, td { padding: 12px 15px; text-align: left; border: 1px solid #e2e8f0; }\nth { font-weight: 600; text-transform: uppercase; font-size: 0.9em; }\ntbody tr:nth-child(even) { background-color: #f7fafc; }\ntbody tr:hover { background-color: #edf2f7; }\nul, ol { margin: 15px 0 15px 25px; }\nli { margin-bottom: 8px; }\nfooter { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; text-align: center; color: #718096; font-size: 0.9em; }\n.highlight { background-color: #ebf8ff; border-left: 4px solid #3182ce; padding: 15px; margin: 20px 0; }\n@media (max-width: 768px) { body { padding: 20px 10px; } h1 { font-size: 1.8em; } table { font-size: 0.9em; } }\nContent Organization\nHeader: Title (<h1>), date/subtitle (<p>)\n\nBody Sections:\n\nKey metrics/executive summary (tables or .highlight boxes)\n\nMain findings (<h2> headings, lists for clarity)\n\nDetailed analysis (<h3> subsections)\n\nData tables (always use <thead> and <tbody>)\n\nFooter: Generation date, source/author\n\nFormatting Rules\nUse semantic HTML: <header>, <section>, <footer>\n\nProper heading hierarchy: h1 → h2 → h3\n\nTables: clear headers, alternating row colors, numbers right-aligned\n\nLists: concise bullets (1-2 lines each)\n\nGenerous spacing between sections\n\nEmail Compatibility\nInline CSS only (no external stylesheets)\n\nWeb-safe fonts (Arial, Segoe UI, Verdana)\n\nSimple CSS (avoid flexbox, grid, complex selectors)\n\nMax width: 900px on body\n\nUse hex colors only\n\nOutput Requirements\nProvide ONLY the complete HTML document\n\nNo explanations, no markdown code blocks, no commentary\n\nDocument must start with <!DOCTYPE html> and end with </html>\n\nDocument must be immediately usable in an email"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        544,
+        0
+      ],
+      "id": "6e8f891a-8790-4a8d-b232-cc374bb01b62",
+      "name": "Styling Agent"
+    },
+    {
+      "parameters": {
+        "model": "deepseek/deepseek-r1-distill-llama-70b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "03936944-c9b0-4188-8af3-ba4012d59427",
+      "name": "r1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "3gVNa2y0H7OLBBFO",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        416,
+        208
+      ],
+      "id": "24ea975f-eb21-4356-b9f1-f0dd0bcf74a6",
+      "name": "r1:2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "3gVNa2y0H7OLBBFO",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Webhook').item.json.body.email }}",
+        "subject": "Your Free AI-Automation-Guide - AI Consulting Company",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        896,
+        0
+      ],
+      "id": "9cb6eedf-2db6-41be-b11b-79c97eb4520b",
+      "name": "Send a message",
+      "webhookId": "3a05c888-e346-40e6-8581-76a0fa8b535a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "BRbDnvj71Qfa5i8d",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Consultant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Consultant": {
+      "main": [
+        [
+          {
+            "node": "Styling Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "r1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Consultant",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "r1:2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Styling Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Styling Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "8CJoj7fdYDNoU84A",
+    "timeSavedPerExecution": 5
+  },
+  "versionId": "adcd3f6f-7dbe-48a6-a771-98fd193a1e64",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ef392288e97836b82aab98670b586bb21a843b93ba74ed9f36f8f8f0e4153c47"
+  },
+  "id": "8CJoj7fdYDNoU84A",
+  "tags": []
+}
