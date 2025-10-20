@@ -20,7 +20,7 @@ flowchart LR
 ```
 
 Or, illustrate visually:
-![Workflow Diagram](Referencimages/workflow.jpg)
+![Workflow Diagram](Referenc images/workflow.jpg)
 ![n8n Workflow](images/Screenshot-2025-10 Intake Form
 
 ![Landing Page]( Workflow Details
