@@ -1,5 +1,3 @@
-Here’s a template for your README.md file, integrating all your project details, workflow explanation, image usage, and booking feature:
-
 ***
 
 # AI Automation Society – Automated AI Implementation Reports with n8n & Base44
@@ -56,8 +54,7 @@ Or, illustrate visually:
 1. Clone this repo and import the workflow JSON into your n8n instance.
 2. Configure environment variables (API keys for LLMs, your Gmail, webhook URL, Calendly link).
 3. Deploy the intake form/website via Base44 or another platform.
-4. Add your screenshots to the `/images` folder in your repo.
-5. Update the README paths for your images if necessary.
+
 
 ***
 
@@ -75,12 +72,3 @@ MIT
 ***
 
 Replace `YOUR_CALENDLY_LINK` with your actual link. Adjust image file paths if you place them in a subfolder. This README template follows good open-source documentation practice and will help others understand, use, and contribute to your project.
-
-[1](https://n8n.io/workflows/)
-[2](https://github.com/enescingoz/awesome-n8n-templates)
-[3](https://github.com/Zie619/n8n-workflows)
-[4](https://www.reddit.com/r/n8n/comments/1kx9u01/all_of_n8n_workflows_i_could_find_1000_enjoy/)
-[5](https://waha-n8n-templates.devlike.pro)
-[6](https://n8n.io/workflows/1115-manage-changes-using-the-git-node/)
-[7](https://n8n.io/workflows/categories/file-management/)
-[8](https://n8n.io/workflows/817-save-your-workflows-into-a-github-repository/)
