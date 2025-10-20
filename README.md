@@ -19,12 +19,12 @@ flowchart LR
     Webhook --> AI_Consultant --> Styling_Agent --> Gmail_Agent
 ```
 
-Or, illustrate visually:
+
 ![Workflow Diagram](Reference-Images/workflow.png)
 
-![n8n Workflow](images/Screenshot-2025-10 Intake Form
 
-![Landing Page]( Workflow Details
+
+![Landing Page](Reference-Images/website.png)
 
 - **Webhook** captures user’s name, email, and business problem.
 - **AI Consultant Agent** (LLM) receives the data and drafts a solution proposal.
@@ -34,7 +34,9 @@ Or, illustrate visually:
 
 ### Sample Report Output
 
-![Sample Report](images/Screenshot-2025-10images/Screenshot-2025-10 Report Metrics:**
+![Sample Report](Reference-Images/report-1.png)
+![Sample Report](Reference-Images/report-2.png)
+![Sample Report](Reference-Images/report-3.png)Report Metrics:**
 - 30min to 1min response time reduction
 - $700/month estimated cost savings
 - Next steps for phased automation (FAQ chatbot, advanced NLU, more)
