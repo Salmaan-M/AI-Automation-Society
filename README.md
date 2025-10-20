@@ -23,7 +23,7 @@ flowchart LR
 ![Workflow Diagram](Reference-Images/workflow.png)
 
 
-
+## Landing Page
 ![Landing Page](Reference-Images/website.png)
 
 - **Webhook** captures user’s name, email, and business problem.
