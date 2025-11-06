@@ -11,7 +11,11 @@ Automate AI consulting reports: collect requests from the AI Automation Society 
 This project provides an end-to-end automated system for generating personalized AI implementation guides. When a business fills out the form on the AI Automation Society website, the workflow uses a webhook to capture details, processes them with two chained AI Agents, creates a styled HTML report, and sends it directly to the prospect by email. Each report includes an invitation to book a personal strategy call.
 
 -Automated AI consulting report generation using n8n and Base44, handling 100+ client requests by analyzing business problems with LLM agents.
+
+
 -Generated and delivered client-ready HTML reports via email, reducing manual report preparation time by 70%. Streamlined AI consulting workflows by integrating no-code       automation and AI-driven analysis.
+
+
 -Tools Used: n8n, Base44 AI, LLM agents, HTML, email automation.
 
 ***
